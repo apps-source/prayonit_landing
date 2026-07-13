@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/data/appLinks";
+import { trackEvent } from "@/lib/analytics";
 
 interface DownloadSectionProps {
   heading: string;
@@ -19,6 +20,7 @@ export default function DownloadSection({
 
   const handleDownloadClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
+    trackEvent("download_clicked");
 
     const userAgent =
       typeof navigator !== "undefined" ? navigator.userAgent : "";
@@ -67,6 +69,7 @@ export default function DownloadSection({
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("app_store_clicked")}
               aria-label="Download on the App Store"
               className="rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
@@ -82,6 +85,7 @@ export default function DownloadSection({
               href={GOOGLE_PLAY_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("google_play_clicked")}
               aria-label="Get it on Google Play"
               className="rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >

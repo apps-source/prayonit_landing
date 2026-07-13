@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/data/appLinks";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
   const [showBadges, setShowBadges] = useState(false);
@@ -26,6 +27,8 @@ export default function Header() {
   }, [showBadges]);
 
   const handleDownloadClick = () => {
+    trackEvent("download_clicked");
+
     const userAgent =
       typeof navigator !== "undefined" ? navigator.userAgent : "";
     const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
@@ -82,6 +85,7 @@ export default function Header() {
                   href={APP_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("app_store_clicked")}
                   aria-label="Download on the App Store"
                   className="rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a44]"
                 >
@@ -97,6 +101,7 @@ export default function Header() {
                   href={GOOGLE_PLAY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("google_play_clicked")}
                   aria-label="Get it on Google Play"
                   className="rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a44]"
                 >

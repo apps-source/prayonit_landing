@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -14,18 +17,21 @@ export default function Footer() {
         <nav className="flex items-center gap-6">
           <Link
             href="/privacy"
+            onClick={() => trackEvent("privacy_clicked")}
             className="rounded-md hover:text-[#1f2a44] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a44]"
           >
             Privacy
           </Link>
           <Link
             href="/terms"
+            onClick={() => trackEvent("terms_clicked")}
             className="rounded-md hover:text-[#1f2a44] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a44]"
           >
             Terms
           </Link>
           <Link
             href="/support"
+            onClick={() => trackEvent("support_clicked")}
             className="rounded-md hover:text-[#1f2a44] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a44]"
           >
             Support

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Mood } from "@/types/mood";
+import { trackEvent } from "@/lib/analytics";
 import MoodSelector from "./MoodSelector";
 import DownloadSection from "./DownloadSection";
 
@@ -82,7 +83,12 @@ export default function MoodExperience() {
                 <div className="mt-8 flex justify-center">
                   <button
                     type="button"
-                    onClick={() => setShowPrayer(true)}
+                    onClick={() => {
+                      trackEvent("lets_pray_clicked", {
+                        mood: selectedMood.id,
+                      });
+                      setShowPrayer(true);
+                    }}
                     className="rounded-full bg-[#1f2a44] px-8 py-3 text-base font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a44]"
                   >
                     Let&rsquo;s Pray
