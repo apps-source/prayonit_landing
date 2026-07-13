@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import ClarityAnalytics from "@/components/ClarityAnalytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#fbf6ee] text-[#1f2a44]">
         {children}
         <Analytics />
+        <ClarityAnalytics />
       </body>
       <GoogleAnalytics gaId="G-9QC1R53Q8N" />
     </html>
