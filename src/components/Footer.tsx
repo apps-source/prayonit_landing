@@ -36,6 +36,13 @@ export default function Footer() {
           >
             Support
           </Link>
+          <Link
+            href="/delete-account"
+            onClick={() => trackEvent("delete_account_clicked")}
+            className="rounded-md hover:text-[#1f2a44] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a44]"
+          >
+            Delete Account &amp; Data
+          </Link>
         </nav>
 
         <p>&copy; {year} Prayonit. All rights reserved.</p>

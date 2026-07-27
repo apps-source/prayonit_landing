@@ -31,11 +31,27 @@ export default function SupportPage() {
               </h2>
               <p className="mt-2">
                 <a
-                  href="mailto:support@nextwavestudiosapp.com"
+                  href="mailto:apps@nextwavestudiosapp.com"
                   className="font-medium text-[#1f2a44] underline underline-offset-4 hover:text-[#a8842f]"
                 >
-                  support@nextwavestudiosapp.com
+                  apps@nextwavestudiosapp.com
                 </a>
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-semibold text-[#1f2a44]">
+                Account and data deletion
+              </h2>
+              <p className="mt-2">
+                For account or data deletion requests, visit our{" "}
+                <a
+                  href="/delete-account"
+                  className="font-medium text-[#1f2a44] underline underline-offset-4 hover:text-[#a8842f]"
+                >
+                  Delete Account &amp; Data
+                </a>{" "}
+                page or email us directly.
               </p>
             </div>
 
@@ -47,8 +63,8 @@ export default function SupportPage() {
                 <span className="font-medium text-[#1f2a44]">
                   Is Prayonit free?
                 </span>{" "}
-                The app includes a 14-day free trial so you can explore its
-                full features before deciding to continue.
+                Eligible users may receive a 14-day free trial before a Prayonit
+                Premium subscription begins.
               </p>
               <p className="mt-4">
                 <span className="font-medium text-[#1f2a44]">
